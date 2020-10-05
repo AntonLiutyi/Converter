@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Email converter</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        .header {
+            text-align: center;
+            font-size: 32px;
+        }
+
+        .reference {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .upload {
+            position: absolute;
+            bottom: 50%;
+            margin-top: 32px;
+            margin-left: 50%;
+            margin-right: 50%;
+            min-width: max-content;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <p class="header">Welcome to the home page!</p>
+    <a class="reference" href="/info">View information</a>
+    <br>
+    <form class="upload" method="POST" enctype="multipart/form-data" action="/upload">
+        File to upload:
+        <br><br>
+        <input type="file" name="file" accept=".xls,.xlsx"><br><br>
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
