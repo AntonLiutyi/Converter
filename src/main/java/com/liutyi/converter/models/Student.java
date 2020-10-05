@@ -8,7 +8,6 @@ import java.util.Map;
 
 @Entity
 public class Student {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -26,15 +25,13 @@ public class Student {
     }
 
     public Student(Map<String, String> infoMap) {
-        this.first_name = infoMap.get("name_name");
+        this.first_name = infoMap.get("first_name");
         this.last_name = infoMap.get("last_name");
         this.email_address = infoMap.get("email_address");
         this.password = infoMap.get("password");
     }
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
 
     public void setId(Long id) {
         this.id = id;

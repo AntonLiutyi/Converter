@@ -2,8 +2,7 @@ package com.liutyi.converter.controllers;
 
 import com.liutyi.converter.models.Student;
 import com.liutyi.converter.repos.StudentRepository;
-import com.liutyi.converter.utils.FileHandler;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import com.liutyi.converter.utils.FilesUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,12 +21,11 @@ public class FileController {
     private StudentRepository studentRepository;
 
     @Autowired
-    private FileHandler fileHandler;
+    private FilesUtil filesUtil;
 
     @PostMapping("/upload")
-    public String fileUpload(@RequestParam("file") MultipartFile file, Model model) throws IOException, InvalidFormatException {
-        fileHandler.setFile(file);
-        List<Map<String, String>> fileInfo = fileHandler.processFile();
+    public String fileUpload(@RequestParam("file") MultipartFile file, Model model) throws IOException {
+        List<Map<String, String>> fileInfo = filesUtil.getDataFromFile(file);
         for (Map<String, String> map : fileInfo) {
             Student student = new Student(map);
             studentRepository.save(student);

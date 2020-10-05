@@ -12,20 +12,23 @@
             font-size: 24px;
         }
 
-        .info-table {
+        .info-row {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
         }
     </style>
 </head>
 <body>
 <a class="reference" href="/">Return to the home page</a>
 <br>
-<div th:each="el : ${students}" class="info-table">
-    <div th:text="${el.first_name}" class="name"/>
-    <div th:text="${el.last_name}" class="name"/>
-    <div th:text="${el.email_address}" class="name"/>
-    <div th:text="${el.password}" class="name"/>
+<div class="info-table">
+    <div th:each="el : ${students}" class="info-row">
+        <div th:text="${el.id}" class="name"/>
+        <div th:text="${el.first_name}" class="name"/>
+        <div th:text="${el.last_name}" class="name"/>
+        <div th:text="${el.email_address}" class="name"/>
+        <div th:text="${el.password}" class="name"/>
+    </div>
 </div>
 </body>
 </html>
