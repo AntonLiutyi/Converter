@@ -14,21 +14,31 @@
 
         .info-row {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: 5% 15% 15% 30% 10%;
+            justify-content: center;
+        }
+
+        .download {
+            margin: 32px auto;
+            text-align: center;
         }
     </style>
 </head>
-<body>
 <a class="reference" href="/">Return to the home page</a>
+<center><h1>Database</h1></center>
 <br>
 <div class="info-table">
     <div th:each="el : ${students}" class="info-row">
-        <div th:text="${el.id}" class="name"/>
-        <div th:text="${el.first_name}" class="name"/>
-        <div th:text="${el.last_name}" class="name"/>
-        <div th:text="${el.email_address}" class="name"/>
-        <div th:text="${el.password}" class="name"/>
+        <div th:text="${el.id}" class="column column-id"/>
+        <div th:text="${el.first_name}" class="column column-first_name"/>
+        <div th:text="${el.last_name}" class="column column-last_name"/>
+        <div th:text="${el.email_address}" class="column column-email_address"/>
+        <div th:text="${el.password}" class="column column-password"/>
     </div>
 </div>
+<form class="download" method="GET" enctype="multipart/form-data" action="/download">
+    Download data in .csv format:
+    <button type="submit">Download!</button>
+</form>
 </body>
 </html>

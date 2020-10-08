@@ -25,10 +25,10 @@ public class Student {
     }
 
     public Student(Map<String, String> infoMap) {
-        this.first_name = infoMap.get("first_name");
-        this.last_name = infoMap.get("last_name");
-        this.email_address = infoMap.get("email_address");
-        this.password = infoMap.get("password");
+        this.first_name = infoMap.get("0");
+        this.last_name = infoMap.get("1");
+        this.email_address = infoMap.get("2");
+        this.password = infoMap.get("3");
     }
 
     public Long getId() { return id; }
